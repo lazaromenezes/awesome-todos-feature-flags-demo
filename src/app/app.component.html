@@ -1,0 +1,17 @@
+<div class='row'>
+  <div style="text-align:center">
+      <h1>Awesome To-Do List</h1>
+    </div>
+    <div materialize class="col s12"> 
+      <div class="row">
+        <label for="todo-item" class="col s10">
+          <input placeholder="Next, I need to..." id="todo-item" name="currentTodo" [(ngModel)]="currentTodo"/>
+        </label>
+        <input type="button" class="btn blue col s2" value="Add" (click)="addTodo()"/>
+      </div>
+    </div>
+</div>
+
+<div class='row'>
+  <app-todo-list [todoList]="todoList"></app-todo-list>
+</div>
