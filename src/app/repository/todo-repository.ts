@@ -21,4 +21,14 @@ export class TodoRepository{
 
         localStorage.setItem(this.key, stringList);
     }
+
+    update(todoItem: Todo){
+        let items = this.load().map(item => {
+            if (item.id == todoItem.id)
+                return todoItem;
+            return item;
+        });
+
+        this.store(items);
+    }
 }
