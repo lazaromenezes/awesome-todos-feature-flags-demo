@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from './model/todo';
+import { User } from './model/user';
 import { UUID } from 'angular2-uuid';
 import { TodoRepository } from './repository/todo-repository'
+import { UserRepository } from './repository/user-repository';
 
 @Component({
   selector: 'app-root',
@@ -13,18 +15,24 @@ export class AppComponent implements OnInit{
   currentTodo: string;
   todoList: Todo[];
 
-  constructor(private todoRepository: TodoRepository){
+  constructor(private todoRepository: TodoRepository,
+    private userRespository: UserRepository){
     
   }
 
   ngOnInit(){
-
-    debugger;
     this.todoList = this.todoRepository.load()
+
+    if(this.userRespository.load() === null){
+      let user: User = {
+        id: UUID.UUID()
+      }
+
+      this.userRespository.store(user)
+    }
   }
 
   addTodo(){
-    debugger;
     if(this.todoList === undefined)
       this.todoList = [];
 
