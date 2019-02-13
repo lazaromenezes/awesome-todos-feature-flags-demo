@@ -1,3 +1,6 @@
 <div class="card">
-  <div class="card-content">{{todoItem.title}}<a href="#" title="Mark as done" (click)="checkItem()" [hidden]="todoItem.isDone"><i class="material-icons green-text right">check</i></a></div>
+  <div class="card-content">{{todoItem.title}}
+    <a href="#" title="Mark as done" (click)="checkItem()" [hidden]="todoItem.isDone"><i class="material-icons green-text right">check</i></a>
+    <a href="#" title="Mark as done" (click)="uncheckItem()" [hidden]="!todoItem.isDone"><i class="material-icons red-text right">undo</i></a>
+  </div>
 </div>

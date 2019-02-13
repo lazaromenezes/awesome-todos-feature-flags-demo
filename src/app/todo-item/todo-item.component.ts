@@ -18,8 +18,12 @@ export class TodoItemComponent implements OnInit {
   }
 
   checkItem(){
-    debugger
     this.todoItem.isDone = true;
+    this.todoRepository.update(this.todoItem);
+  }
+
+  uncheckItem(){
+    this.todoItem.isDone = false;
     this.todoRepository.update(this.todoItem);
   }
 }
