@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Todo } from '../model/todo';
 import { TodoRepository } from '../repository/todo-repository';
+import { FlagsService } from '../service/flags-service';
+import { debug } from 'util';
 
 @Component({
   selector: 'app-todo-item',
@@ -11,7 +13,12 @@ export class TodoItemComponent implements OnInit {
   
   @Input() todoItem: Todo;
 
-  constructor(private todoRepository: TodoRepository) { }
+  get isLinedThrough(){
+    return this.todoItem.isDone && this.flagService.isFeatureEnabled('line-through-done-items', false);
+  }
+
+  constructor(private todoRepository: TodoRepository, 
+    private flagService: FlagsService) { }
 
   ngOnInit() {
     
