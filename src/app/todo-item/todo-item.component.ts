@@ -17,6 +17,10 @@ export class TodoItemComponent implements OnInit {
     return this.todoItem.isDone && this.flagService.isFeatureEnabled('line-through-done-items', false);
   }
 
+  get isDueDateEnabled(){
+    return this.flagService.isFeatureEnabled('use-due-date', false); 
+  }
+
   constructor(private todoRepository: TodoRepository, 
     private flagService: FlagsService) { }
 
