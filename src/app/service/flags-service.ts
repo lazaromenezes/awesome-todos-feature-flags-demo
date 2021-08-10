@@ -16,7 +16,7 @@ export class FlagsService{
         bulletTrain.identify(user.id)
 
         bulletTrain.init({
-            environmentID: "BULLET_TRAIN_ENVIRONMENT_KEY",
+            environmentID: "KujiopFpqzMpdv5bQFYA8X",
             onChange: () => {
                 this.flags = bulletTrain.getAllFlags();
             },
